@@ -1,5 +1,5 @@
 <?php
-die( "Dying for safety, because nobody should actually use this.\nIf you disagree, you'll need to uncomment line 2.\n" );
+//die( "Dying for safety, because nobody should actually use this.\nIf you disagree, you'll need to uncomment line 2.\n" );
 //just don't commit it uncommented. >:[
 
 $IP = getenv( 'MW_INSTALL_PATH' );
@@ -474,7 +474,7 @@ class ZipFileParser extends Maintenance {
 		}
 		
 		$ignore_me = array(
-			'clz5_id',
+			//'clz5_id',
 			'clz3_id',
 		);
 		
