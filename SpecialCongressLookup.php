@@ -363,7 +363,7 @@ HTML;
 				"name" => "Facebook"
 			),
 			array(
-				"url" => "https://m.google.com/app/plus/x/?v=compose&content=$1",
+				"url" => "https://plus.google.com/share?url=https://wikimediafoundation.org/wiki/SOPA/Blackoutpage",
 				"img" => "//upload.wikimedia.org/wikipedia/commons/0/08/WP_SOPA_sm_icon_gplus_dedede.png",
 				"name" => "Google+"
 			),
