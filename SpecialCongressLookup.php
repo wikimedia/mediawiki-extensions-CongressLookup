@@ -179,6 +179,10 @@ h4 {
 	<p>
 	Congress says it's trying to protect the rights of copyright owners, but the "cure" that SOPA and PIPA represent is worse than the disease. SOPA and PIPA are not the answer: they would fatally damage the free and open Internet.
 	</p>
+	
+	<p>
+	Make the greatest impact by <b>calling</b> your Congressional Representative today.  Hundreds of thousands of people are reaching out — email forms for your Representative may be broken.
+	</p>
 </div>
 <div id="contacts">
 
