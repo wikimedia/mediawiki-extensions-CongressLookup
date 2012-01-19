@@ -99,7 +99,7 @@ HTML;
 
 		$congressTable = '';
 		
-		$congressTable .= Html::element( 'h4', array(), 'Your Representatives:' );
+		$congressTable .= Html::element( 'h4', array(), wfMsg( 'congresslookup-your-reps' ) );
 
 		if ( $myRepresentatives ) {
 			foreach ( $myRepresentatives as $myRepresentative ) {
