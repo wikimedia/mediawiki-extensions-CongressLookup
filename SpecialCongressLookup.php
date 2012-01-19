@@ -393,6 +393,11 @@ div#instructions {
 	text-align: left;
 	width: 500px;
 	padding-bottom: 30px;
+	background-color: #ffffff;
+	filter:alpha(opacity=90);
+	-moz-opacity:0.90;
+	-khtml-opacity: 0.90;
+	opacity: 0.90;
 }
 div#instructions p {
   text-align:justify;
@@ -415,6 +420,12 @@ div#contacts h4 {
 }
 div#contacts form {
 	margin-bottom: 1em;
+}
+div#contacts a:link, div#contacts a:visited {
+	color: #dedede;
+}
+div#contacts a:hover, div#contacts a:active {
+	color: #ffffff;
 }
 table.person {
 	margin-bottom: 1em;
