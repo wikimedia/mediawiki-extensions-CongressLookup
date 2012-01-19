@@ -161,33 +161,11 @@ h4 {
 <body>
 <div id="everything">
 <div id="instructions">
-	<div class="sopaBigHeadline">Call your elected officials.</div>
-	
-	<p>
-	Tell them you are their constituent, and you oppose SOPA and PIPA.
-	</p>
-	
-	<div class="sopaSectionHeadline">Why?</div>
-	<p>
-	SOPA and PIPA would put the burden on website owners to police user-contributed material and call for the unnecessary blocking of entire sites. Small sites won't have sufficient resources to defend themselves. Big media companies may seek to cut off funding sources for their foreign competitors, even if copyright isn't being infringed. Foreign sites will be blacklisted, which means they won't show up in major search engines. SOPA and PIPA would build a framework for future restrictions and suppression. 
-	</p>
-	
-	<p>
-	In a world in which politicians regulate the Internet based on the influence of big money, Wikipedia &mdash; and sites like it &mdash; cannot survive.
-	</p>
-	
-	<p>
-	Congress says it's trying to protect the rights of copyright owners, but the "cure" that SOPA and PIPA represent is worse than the disease. SOPA and PIPA are not the answer: they would fatally damage the free and open Internet.
-	</p>
-	
-	<p>
-	Make the greatest impact by <b>calling</b> your Congressional Representative today.  Hundreds of thousands of people are reaching out — email forms for your Representative may be broken.
-	</p>
-</div>
-<div id="contacts">
 
-	
 HTML;
+		$htmlOut .= wfMsgExt( 'congresslookup-text', 'parse' );
+		
+		$htmlOut .= '</div><div id="contacts">';
 
 		if ( $this->getZip() === false ) {
 			$htmlOut .= $this->getZipForm( true );
