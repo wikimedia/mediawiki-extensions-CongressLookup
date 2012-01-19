@@ -48,6 +48,11 @@ $wgCongressLookupMaxAge = 600; // 10 minutes client-side
 // Where to report errors (special page)
 $wgCongressLookupErrorPage = 'CongressFail';
 
+/**
+ * Use black-on-white style or white-on-black
+ * @var bool True = black on white style
+ */
+$wgCongressLookupBlackOnWhite = false;
 
 $dir = dirname( __FILE__ ) . '/';
 

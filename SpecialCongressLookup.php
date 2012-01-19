@@ -50,114 +50,9 @@ class SpecialCongressLookup extends UnlistedSpecialPage {
 		$htmlOut .= <<<HTML
 <!DOCTYPE html>
 <html lang="en" dir="ltr" class="client-nojs">
-<head>
-<title>Wikipedia, the free encyclopedia</title>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<meta http-equiv="Content-Style-Type" content="text/css" />
-<meta name="generator" content="MediaWiki 1.18wmf1" />
-<style type="text/css">
-body {
-	color: #dedede;
-	margin: 2em;
-	font-family:Times New Roman;
-	background: black url('//upload.wikimedia.org/wikipedia/commons/9/98/WP_SOPA_Splash_Full.jpg') no-repeat 0 0;
-}
-h3{
-    font-size: 1.5em;
-    text-align:center;
-    margin-bottom: 0.5em;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-h4 { 
-  font-weight: bold;
-  color: #ffffff;
-}
-a:link, a:visited {
-	color: #dedede;
-}
-a:hover, a:active {
-	color: #ffffff;
-}
-div#everything {
-	width: 920px;
-	margin: 0 auto;
-}
-div#instructions {
-	position: absolute;
-	top: 67px;
-	left: 480px;
-	text-align: left;
-	width: 500px;
-	padding-bottom: 30px;
-}
-div#instructions p {
-  text-align:justify;
-}
-div#contacts {
-	position: absolute;
-	top: 50px;
-	left: 80px;
-	width: 320px;
-	background-color: #161616;
-	padding: 5px 20px 20px 20px;
-	filter:alpha(opacity=90);
-	-moz-opacity:0.90;
-	-khtml-opacity: 0.90;
-	opacity: 0.90;
-}
-div#contacts form {
-	margin-bottom: 1em;
-}
-table.person {
-	margin-bottom: 1em;
-	margin-left: 20px;
-	border: none;
-}
-table.person td.name {
-	font-weight: bold;
-}
-p {
-	margin: 1em 0;
-}
-p.quote {
-	font-family: georgia, serif;
-	font-size: 14px;
-	color: #cccccc;
-	margin-left: 20px;
-}
-p.note {
-	margin-top: 0;
-}
-h3 {
-	font-weight: normal;
-	font-size: 20px;
-}
-h4 {
-	font-weight: normal;
-	font-size: 17px;
-}
-.sopaBigHeadline {
-  font-size: 1.5em;
-  margin-bottom: 0.5em;
-}
-.sopaSectionHeadline {
-  font-size: 1.2em;
-  margin-bottom: 0.2em;
-}
-.sopaSocial {
-  float: left;
-  text-align: center;
-  margin-right: 12px;
-  margin-bttom: 3px;
-  font-size: small;
-}
-.sopaActionHead {
-  font-weight: bold
-}
-</style>
-</head>
+HTML;
+		$htmlOut .= $this->getHtmlHead();
+		$htmlOut .= <<<HTML
 <body>
 <div id="everything">
 <div id="instructions">
@@ -445,5 +340,244 @@ HTML;
 		}
 		
 		return true;
+	}
+	
+	public function getHtmlHead() {
+		global $wgCongressLookupBlackOnWhite;
+		
+		if ( $wgCongressLookupBlackOnWhite ) {
+			$html_head = <<<HTML
+<head>
+<title>Wikipedia, the free encyclopedia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="MediaWiki 1.18wmf1" />
+<style type="text/css">
+body {
+	/*color: #dedede;*/
+	color: #343434;
+	margin: 2em;
+	font-family:Times New Roman;
+	background: white url('//upload.wikimedia.org/wikipedia/commons/0/03/POSTSOPA_Landing_W-2.jpg')  no-repeat 0 0; 
+}
+h3{
+    font-size: 1.5em;
+    text-align:center;
+    margin-bottom: 0.5em;
+    /*color: #ffffff;*/
+    color: #000000;
+    font-weight: bold;
+}
+
+h4 { 
+  font-weight: bold;
+  /*color: #ffffff;*/
+  color: #000000;
+}
+a:link, a:visited {
+	/*color: #dedede;*/
+	color: #343434;
+}
+a:hover, a:active {
+	/*color: #ffffff;*/
+	color: #000000;
+}
+div#everything {
+	width: 920px;
+	margin: 0 auto;
+}
+div#instructions {
+	position: absolute;
+	top: 67px;
+	left: 480px;
+	text-align: left;
+	width: 500px;
+	padding-bottom: 30px;
+}
+div#instructions p {
+  text-align:justify;
+}
+div#contacts {
+	position: absolute;
+	top: 50px;
+	left: 80px;
+	width: 320px;
+	background-color: #161616;
+	padding: 5px 20px 20px 20px;
+	filter:alpha(opacity=90);
+	-moz-opacity:0.90;
+	-khtml-opacity: 0.90;
+	opacity: 0.90;
+	color: #ffffff;
+}
+div#contacts h4 {
+	color: #ffffff;
+}
+div#contacts form {
+	margin-bottom: 1em;
+}
+table.person {
+	margin-bottom: 1em;
+	margin-left: 20px;
+	border: none;
+}
+table.person td.name {
+	font-weight: bold;
+}
+p {
+	margin: 1em 0;
+}
+p.quote {
+	font-family: georgia, serif;
+	font-size: 14px;
+	color: #cccccc;
+	margin-left: 20px;
+}
+p.note {
+	margin-top: 0;
+}
+h3 {
+	font-weight: normal;
+	font-size: 20px;
+}
+h4 {
+	font-weight: normal;
+	font-size: 17px;
+}
+.sopaBigHeadline {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.sopaSectionHeadline {
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+.sopaSocial {
+  float: left;
+  text-align: center;
+  margin-right: 12px;
+  margin-bttom: 3px;
+  font-size: small;
+}
+.sopaActionHead {
+  font-weight: bold
+}
+</style>
+</head>
+HTML;
+		} else {
+			$html_head = <<<HTML
+<head>
+<title>Wikipedia, the free encyclopedia</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Style-Type" content="text/css" />
+<meta name="generator" content="MediaWiki 1.18wmf1" />
+<style type="text/css">
+body {
+	color: #dedede;
+	margin: 2em;
+	font-family:Times New Roman;
+	background: black url('//upload.wikimedia.org/wikipedia/commons/9/98/WP_SOPA_Splash_Full.jpg') no-repeat 0 0;
+}
+h3{
+    font-size: 1.5em;
+    text-align:center;
+    margin-bottom: 0.5em;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+h4 { 
+  font-weight: bold;
+  color: #ffffff;
+}
+a:link, a:visited {
+	color: #dedede;
+}
+a:hover, a:active {
+	color: #ffffff;
+}
+div#everything {
+	width: 920px;
+	margin: 0 auto;
+}
+div#instructions {
+	position: absolute;
+	top: 67px;
+	left: 480px;
+	text-align: left;
+	width: 500px;
+	padding-bottom: 30px;
+}
+div#instructions p {
+  text-align:justify;
+}
+div#contacts {
+	position: absolute;
+	top: 50px;
+	left: 80px;
+	width: 320px;
+	background-color: #161616;
+	padding: 5px 20px 20px 20px;
+	filter:alpha(opacity=90);
+	-moz-opacity:0.90;
+	-khtml-opacity: 0.90;
+	opacity: 0.90;
+}
+div#contacts form {
+	margin-bottom: 1em;
+}
+table.person {
+	margin-bottom: 1em;
+	margin-left: 20px;
+	border: none;
+}
+table.person td.name {
+	font-weight: bold;
+}
+p {
+	margin: 1em 0;
+}
+p.quote {
+	font-family: georgia, serif;
+	font-size: 14px;
+	color: #cccccc;
+	margin-left: 20px;
+}
+p.note {
+	margin-top: 0;
+}
+h3 {
+	font-weight: normal;
+	font-size: 20px;
+}
+h4 {
+	font-weight: normal;
+	font-size: 17px;
+}
+.sopaBigHeadline {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+}
+.sopaSectionHeadline {
+  font-size: 1.2em;
+  margin-bottom: 0.2em;
+}
+.sopaSocial {
+  float: left;
+  text-align: center;
+  margin-right: 12px;
+  margin-bttom: 3px;
+  font-size: small;
+}
+.sopaActionHead {
+  font-weight: bold
+}
+</style>
+</head>
+HTML;
+		}
+		
+		return $html_head;
 	}
 }
