@@ -207,8 +207,8 @@ HTML;
 	private function getZipForm( $isError=false ) {
 		$htmlOut = <<<HTML
 <div id="sopaZipForm" class="sopaActionDiv">
-<h4>Contact your representatives</h4>
 HTML;
+		$htmlOut .= Html::element( 'h4', array(), wfMsg( 'congresslookup-contact-your-reps' ));
 		if ( $isError ) {
 			$htmlOut .= Html::element( 'p', array( 'class' => 'error' ), wfMsg( 'congresslookup-zipcode-error' ));
 		}
