@@ -262,7 +262,8 @@ HTML;
 						array(
 							'src' => $option['img'],
 							'height' => '33',
-							'width' => '33'
+							'width' => '33',
+							'border' => '0',
 						),
 						''
 					) 
