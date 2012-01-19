@@ -388,11 +388,11 @@ div#everything {
 }
 div#instructions {
 	position: absolute;
-	top: 67px;
-	left: 480px;
+	top: 47px;
+	left: 460px;
 	text-align: left;
 	width: 500px;
-	padding-bottom: 30px;
+	padding: 20px;
 	background-color: #ffffff;
 	filter:alpha(opacity=90);
 	-moz-opacity:0.90;
@@ -514,11 +514,11 @@ div#everything {
 }
 div#instructions {
 	position: absolute;
-	top: 67px;
-	left: 480px;
+	top: 47px;
+	left: 460px;
 	text-align: left;
 	width: 500px;
-	padding-bottom: 30px;
+	padding: 20px;
 }
 div#instructions p {
   text-align:justify;
