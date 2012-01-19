@@ -358,7 +358,7 @@ body {
 	color: #343434;
 	margin: 2em;
 	font-family:Times New Roman;
-	background: white url('//upload.wikimedia.org/wikipedia/commons/0/03/POSTSOPA_Landing_W-2.jpg')  no-repeat 0 0; 
+	background: white url('//upload.wikimedia.org/wikipedia/commons/0/03/POSTSOPA_Landing_W-2.jpg')  no-repeat 0 130px; 
 }
 h3{
     font-size: 1.5em;
@@ -488,7 +488,7 @@ body {
 	color: #dedede;
 	margin: 2em;
 	font-family:Times New Roman;
-	background: black url('//upload.wikimedia.org/wikipedia/commons/9/98/WP_SOPA_Splash_Full.jpg') no-repeat 0 0;
+	background: black url('//upload.wikimedia.org/wikipedia/commons/9/98/WP_SOPA_Splash_Full.jpg') no-repeat 0 130px;
 }
 h3{
     font-size: 1.5em;
