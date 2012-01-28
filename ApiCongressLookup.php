@@ -12,11 +12,9 @@ class ApiCongressLookup extends ApiBase {
 
 		$params = $this->extractRequestParams();
 
-		$res = array();
-
 		$dbw = wfGetDb( DB_MASTER );
 
-		$res = $dbw->insert(
+		$dbw->insert(
 			'cl_errors',
 			array(
 				'cle_zip' => $params['zip'],

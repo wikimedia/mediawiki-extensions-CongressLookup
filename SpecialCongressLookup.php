@@ -85,7 +85,7 @@ HTML;
 	 */
 	private function getTwitterHtml( $handle ) {
 		return Html::element( 'a', array( 'target' => '_blank', 'href' => 'http://twitter.com/#!/' . $handle ), '@' . $handle );
-	}	
+	}
 
 	/**
 	 * Get an HTML table of data for the user's congressional representatives
