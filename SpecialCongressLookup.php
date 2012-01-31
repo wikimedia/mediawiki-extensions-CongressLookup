@@ -212,8 +212,12 @@ HTML;
 		if ( $isError ) {
 			$htmlOut .= Html::element( 'p', array( 'class' => 'error' ), wfMsg( 'congresslookup-zipcode-error' ));
 		}
+		$htmlOut .= Html::openElement( 'form', array(
+			'action' => wfScript(),
+			'method' => 'get',
+		) );
+		$htmlOut .= Html::hidden( 'title', $this->getTitle()->getPrefixedText() );
 		$htmlOut .= <<<HTML
-	<form action="" method="GET">
 		<label for="zip">Your zip code:</label>
 		<input type="text" maxlength="10" size="5" name="zip" id="zip"/>
 		<input type="submit" value="Look up" name="submit"/>
