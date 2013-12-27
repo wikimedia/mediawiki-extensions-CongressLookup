@@ -216,7 +216,7 @@ HTML;
 			'action' => wfScript(),
 			'method' => 'get',
 		) );
-		$htmlOut .= Html::hidden( 'title', $this->getTitle()->getPrefixedText() );
+		$htmlOut .= Html::hidden( 'title', $this->getPageTitle()->getPrefixedText() );
 		$htmlOut .= <<<HTML
 		<label for="zip">Your zip code:</label>
 		<input type="text" maxlength="10" size="5" name="zip" id="zip"/>
