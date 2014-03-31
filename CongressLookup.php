@@ -35,7 +35,7 @@ EOT;
 $wgExtensionCredits['specialpage'][] = array(
 	'path' => __FILE__,
 	'name' => 'CongressLookup',
-	'version' => '1.0',
+	'version' => '1.1.0',
 	'url' => 'https://www.mediawiki.org/wiki/Extension:CongressLookup',
 	'author' => array( 'Ryan Kaldari' ),
 	'descriptionmsg' => 'congresslookup-desc',
@@ -63,6 +63,7 @@ $wgAPIModules['congresslookup'] = 'ApiCongressLookup';
 $wgAutoloadClasses['SpecialCongressLookup'] = $dir . 'SpecialCongressLookup.php';
 $wgAutoloadClasses['SpecialCongressFail'] = $dir . 'SpecialCongressFail.php';
 $wgAutoloadClasses['CongressLookupDB'] = $dir . 'CongressLookup.db.php';
+$wgMessagesDirs['CongressLookup'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['CongressLookup'] = $dir . 'CongressLookup.i18n.php';
 $wgExtensionMessagesFiles['CongressLookupAlias'] = $dir . 'CongressLookup.alias.php';
 $wgSpecialPages['CongressLookup'] = 'SpecialCongressLookup';
