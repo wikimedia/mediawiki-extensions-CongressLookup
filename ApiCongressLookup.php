@@ -68,10 +68,6 @@ class ApiCongressLookup extends ApiBase {
 		return '';
 	}
 
-	public function getVersion() {
-		return __CLASS__ . ': $Id: $';
-	}
-
 	private function checkPermission( $user ) {
 		if ( $user->isBlocked( false ) ) {
 			$this->dieUsageMsg( array( 'blockedtext' ) );
