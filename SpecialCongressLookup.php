@@ -58,7 +58,7 @@ HTML;
 <div id="instructions">
 
 HTML;
-		$htmlOut .= wfMsgExt( 'congresslookup-text', 'parse' );
+		$htmlOut .= wfMessage( 'congresslookup-text' )->parse();
 		
 		$htmlOut .= '</div><div id="contacts">';
 
