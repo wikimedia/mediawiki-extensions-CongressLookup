@@ -21,7 +21,7 @@ class SpecialCongressLookup extends UnlistedSpecialPage {
 		// Pull in query string parameters
 		$zip = $wgRequest->getVal( 'zip' );
 		if ( !is_null( $zip )) $this->setZip( $zip );
-		
+
 		// Setup
 		$wgOut->disable();
 		$this->sendHeaders();
@@ -37,7 +37,7 @@ class SpecialCongressLookup extends UnlistedSpecialPage {
 		header( "Content-type: text/html; charset=utf-8" );
 		header( "Cache-Control: public, s-maxage=$wgCongressLookupSharedMaxAge, max-age=$wgCongressLookupMaxAge" );
 	}
-	
+
 	/**
 	 * Build the HTML for the page
 	 * @return true
@@ -59,7 +59,7 @@ HTML;
 
 HTML;
 		$htmlOut .= wfMessage( 'congresslookup-text' )->parse();
-		
+
 		$htmlOut .= '</div><div id="contacts">';
 
 		if ( $this->getZip() === false ) {
@@ -93,54 +93,54 @@ HTML;
 	 */
 	private function getCongressTables() {
 		global $wgCongressLookupErrorPage, $wgRequest;
-		
+
 		$myRepresentatives = CongressLookupDB::getRepresentative( $this->zip );
 		$mySenators = CongressLookupDB::getSenators( $this->zip );
 
 		$congressTable = '';
-		
-		$congressTable .= Html::element( 'h4', array(), wfMsg( 'congresslookup-your-reps' ) );
+
+		$congressTable .= Html::element( 'h4', array(), $this->msg( 'congresslookup-your-reps' )->text() );
 
 		if ( $myRepresentatives ) {
 			foreach ( $myRepresentatives as $myRepresentative ) {
 				$congressTable .= "\n" . Html::openElement( 'table', array (
 					'class' => 'person',
 				) );
-	
+
 				$congressTable .= "\n" . Html::rawElement( 'tr', array(),
 					Html::element( 'td',  array ( 'class' => 'name' ), $myRepresentative['name'] )
 			   	);
-	
+
 				$congressTable .= "\n" . Html::rawElement( 'tr', array(),
-					Html::element( 'td', array(), wfMsg( 'congresslookup-phone', $myRepresentative['phone'] ) )
+					Html::element( 'td', array(), $this->msg( 'congresslookup-phone', $myRepresentative['phone'] )->text() )
 			   	);
-	
+
 				if ( $myRepresentative['twitter'] ) {
 					$congressTable .= "\n" . Html::rawElement( 'tr', array(),
-						Html::rawElement( 'td', array(), wfMsg( 'congresslookup-twitter', self::getTwitterHtml( $myRepresentative['twitter'] ) ) )
+						Html::rawElement( 'td', array(), $this->msg( 'congresslookup-twitter', self::getTwitterHtml( $myRepresentative['twitter'] )->text() ) )
 					);
 				}
-	
+
 				$congressTable .= "\n" . Html::rawElement( 'tr', array(),
 					Html::rawElement( 'td', array(),
 						Html::element( 'a', array (
 							'href' => $myRepresentative['contactform'],
 							'target' => '_blank',
 							),
-							wfMsg( 'congresslookup-contact-form' )
+							$this->msg( 'congresslookup-contact-form' )->text()
 						)
 					)
 				);
-	
-				$congressTable .= Html::rawElement( 'tr', array(), 
+
+				$congressTable .= Html::rawElement( 'tr', array(),
 				Html::rawElement( 'td', array(), $this->getSocialMedia( $myRepresentative ) ) );
 				$congressTable .= "\n" . Html::closeElement( 'table' );
 			}
 			if ( count( $myRepresentatives ) > 1 ) {
-				$congressTable .= HTML::element( 'p', array( 'class' => 'note' ), wfMsg( 'congresslookup-multiple-house-reps' ));
+				$congressTable .= HTML::element( 'p', array( 'class' => 'note' ), $this->msg( 'congresslookup-multiple-house-reps' )->text());
 			}
 		} else {
-			$congressTable .= Html::element( 'p', array(), wfMsg( 'congresslookup-no-house-rep' ) );
+			$congressTable .= Html::element( 'p', array(), $this->msg( 'congresslookup-no-house-rep' )->text() );
 		}
 		foreach ( $mySenators as $senator ) {
 			$congressTable .= "\n" . Html::openElement( 'table', array (
@@ -152,54 +152,48 @@ HTML;
 			);
 
 			$congressTable .= "\n" . Html::rawElement( 'tr', array(),
-				Html::element( 'td', array(), wfMsg( 'congresslookup-phone', $senator['phone'] ) )
+				Html::element( 'td', array(), $this->msg( 'congresslookup-phone', $senator['phone'] )->text() )
 			);
 
-			/*
-			$congressTable .= "\n" . Html::rawElement( 'tr', array(),
-				Html::element( 'td', array(), wfMsg( 'congresslookup-fax', $senator['fax'] ) )
-			);
-			*/
-			
 			if ( $senator['twitter'] ) {
 				$congressTable .= "\n" . Html::rawElement( 'tr', array(),
-					Html::rawElement( 'td', array(), wfMsg( 'congresslookup-twitter', self::getTwitterHtml( $senator['twitter'] ) ) )
+					Html::rawElement( 'td', array(), $this->msg( 'congresslookup-twitter', self::getTwitterHtml( $senator['twitter'] ) )->text() )
 				);
 			}
 
 			$congressTable .= "\n" . Html::rawElement( 'tr', array(),
 				Html::rawElement( 'td', array(),
 					Html::element( 'a', array (
-						'href' => $senator['contactform'],
-						'target' => '_blank',
-					),
-					wfMsg( 'congresslookup-contact-form' )
+							'href' => $senator['contactform'],
+							'target' => '_blank',
+						),
+						$this->msg( 'congresslookup-contact-form' )->text()
 					)
 				)
 			);
 
-			$congressTable .= Html::rawElement( 'tr', array(), 
+			$congressTable .= Html::rawElement( 'tr', array(),
 				Html::rawElement( 'td', array(), $this->getSocialMedia( $senator ) ) );
 			$congressTable .= "\n" . Html::closeElement( 'table' );
 		}
 		if ( count( $mySenators ) == 0 ) {
-			$congressTable .= Html::element( 'p', array(), wfMsg( 'congresslookup-no-senators' ) );
+			$congressTable .= Html::element( 'p', array(), $this->msg( 'congresslookup-no-senators' )->text() );
 		}
-		
+
 		$errorPage = SpecialPage::getTitleFor( $wgCongressLookupErrorPage );
 		$errorUrl = $errorPage->getLocalURL( array( 'zip' => $wgRequest->getVal( 'zip' ) ) );
 
 		$congressTable .= Html::openElement( 'p' );
-		$congressTable .= Html::element( 
-			'a', 
+		$congressTable .= Html::element(
+			'a',
 			array ( 'href' => $errorUrl ),
-			wfMsg( 'congresslookup-report-errors' ) 
+			$this->msg( 'congresslookup-report-errors' )->text()
 		);
 		$congressTable .= Html::closeElement( 'p' );
-		
+
 		return $congressTable;
 	}
-	
+
 	/**
 	 * Get HTML for a Zip Code form
 	 * @return string HTML
@@ -208,9 +202,9 @@ HTML;
 		$htmlOut = <<<HTML
 <div id="sopaZipForm" class="sopaActionDiv">
 HTML;
-		$htmlOut .= Html::element( 'h4', array(), wfMsg( 'congresslookup-contact-your-reps' ));
+		$htmlOut .= Html::element( 'h4', array(), $this->msg( 'congresslookup-contact-your-reps' )->text());
 		if ( $isError ) {
-			$htmlOut .= Html::element( 'p', array( 'class' => 'error' ), wfMsg( 'congresslookup-zipcode-error' ));
+			$htmlOut .= Html::element( 'p', array( 'class' => 'error' ), $this->msg( 'congresslookup-zipcode-error' )->text());
 		}
 		$htmlOut .= Html::openElement( 'form', array(
 			'action' => wfScript(),
@@ -226,7 +220,7 @@ HTML;
 HTML;
 		return $htmlOut;
 	}
-	
+
 	/**
 	 * Get HTML for social media links
 	 * @return string HTML for social media links
@@ -249,7 +243,7 @@ HTML;
 				"img" => "//upload.wikimedia.org/wikipedia/foundation/4/45/WP_SOPA_sm_icon_twitter_dedede.png",
 				"name" => "Twitter"
 			)
-		);	
+		);
 
 		$htmlShare = '';
 		foreach( $shareOptions as $option ) {
@@ -270,7 +264,7 @@ HTML;
 							'border' => '0',
 						),
 						''
-					) 
+					)
 				) .
 				Html::rawElement( 'br' ) .
 				Html::rawElement( 'a',
@@ -283,49 +277,49 @@ HTML;
 			);
 		}
 		$htmlOut = Html::rawElement( 'div',
-			array( 
+			array(
 				'id' => 'sopaShareOptions',
 				'class' => 'sopaActionDiv'
 			),
 				Html::rawElement( 'p',
 					array(), 'Done? Tell the world!'
-				) . 
-				Html::rawElement( 'div', 
+				) .
+				Html::rawElement( 'div',
 					array(),
 					$htmlShare) .
 				Html::rawElement( 'div',
 					array(
 						'style' => 'clear: both;'
 					), ''
-				) . 
+				) .
 				Html::rawElement( 'hr' )
 			);
 
 		return $htmlOut;
 	}
-	
+
 	private function formatDoneText( $rep ) {
 		$name = trim( preg_replace( '/\[.*\]/', '', $rep['name'] ) );
 		return urlencode( "I just contacted $name to oppose #SOPA/#PIPA - Join me! http://tinyurl.com/7vq4o8g #wikipediablackout" );
-	}	
+	}
 	/**
 	 * Setter for $this->zip
-	 * 
+	 *
 	 * In the event that $zip is invalid, set the value of $this->zip to false.
 	 * @param $zip
 	 */
 	public function setZip( $zip ) {
 		if ( !$this->isValidZip( $zip )) {
 			$this->zip = false;
-		} else { 		
+		} else {
 			$this->zip = $zip;
 		}
 	}
-	
+
 	public function getZip() {
 		return $this->zip;
 	}
-	
+
 	/**
 	 * Make sure the zip code entered was valid-ish
 	 * @param $zip
@@ -333,23 +327,23 @@ HTML;
 	 */
 	public function isValidZip( $zip ) {
 		$zipPieces = explode( '-', $zip, 2 );
-		
+
 		if ( strlen( $zipPieces[0] ) != 5 || !is_numeric( $zipPieces[0] )) {
 			return false;
 		}
-		
+
 		if ( isset( $zipPieces[1] )) {
 			if ( strlen( $zipPieces[1] ) != 4 || !is_numeric( $zipPieces[1] )) {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
-	
+
 	public function getHtmlHead() {
 		global $wgCongressLookupBlackOnWhite;
-		
+
 		if ( $wgCongressLookupBlackOnWhite ) {
 			$html_head = <<<HTML
 <head>
@@ -363,7 +357,7 @@ body {
 	color: #343434;
 	margin: 2em;
 	font-family:Times New Roman;
-	background: white url('//upload.wikimedia.org/wikipedia/commons/0/03/POSTSOPA_Landing_W-2.jpg')  no-repeat 0 130px; 
+	background: white url('//upload.wikimedia.org/wikipedia/commons/0/03/POSTSOPA_Landing_W-2.jpg')  no-repeat 0 130px;
 }
 h3{
     font-size: 1.5em;
@@ -374,7 +368,7 @@ h3{
     font-weight: bold;
 }
 
-h4 { 
+h4 {
   font-weight: bold;
   /*color: #ffffff;*/
   color: #000000;
@@ -503,7 +497,7 @@ h3{
     font-weight: bold;
 }
 
-h4 { 
+h4 {
   font-weight: bold;
   color: #ffffff;
 }
@@ -593,7 +587,7 @@ h4 {
 </head>
 HTML;
 		}
-		
+
 		return $html_head;
 	}
 }
