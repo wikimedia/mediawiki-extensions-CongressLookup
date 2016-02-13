@@ -137,7 +137,7 @@ HTML;
 				$congressTable .= "\n" . Html::closeElement( 'table' );
 			}
 			if ( count( $myRepresentatives ) > 1 ) {
-				$congressTable .= HTML::element( 'p', array( 'class' => 'note' ), $this->msg( 'congresslookup-multiple-house-reps' )->text());
+				$congressTable .= Html::element( 'p', array( 'class' => 'note' ), $this->msg( 'congresslookup-multiple-house-reps' )->text());
 			}
 		} else {
 			$congressTable .= Html::element( 'p', array(), $this->msg( 'congresslookup-no-house-rep' )->text() );
