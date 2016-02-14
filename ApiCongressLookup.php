@@ -49,17 +49,6 @@ class ApiCongressLookup extends ApiBase {
 		);
 	}
 
-	public function getParamDescription() {
-		return array(
-			'zip' => 'the zipcode with a problem',
-			'comment' => 'whatever the user has to say about that problem',
-		);
-	}
-
-	public function getDescription() {
-		return 'Record errors regarding congressional representative lookups';
-	}
-
 	public function needsToken() {
 		return 'csrf';
 	}
