@@ -22,6 +22,7 @@
 	"congressfail": "Title of secondary special page where one can report data errors",
 	"congresslookup-text": "Just in case the local MediaWiki message isn't set. Probably don't need to translate this.",
 	"apihelp-congresslookup-description": "{{doc-apihelp-description|congresslookup}}",
+	"apihelp-congresslookup-summary": "{{doc-apihelp-summary|congresslookup}}",
 	"apihelp-congresslookup-param-zip": "{{doc-apihelp-param|congresslookup|zip}}",
 	"apihelp-congresslookup-param-comment": "{{doc-apihelp-param|congresslookup|comment}}"
 }

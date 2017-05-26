@@ -22,6 +22,7 @@
 	"congressfail": "CongressFail",
 	"congresslookup-text": "<div style=\"font-size: 1.5em;margin-bottom: 0.5em;\">Call your elected officials.</div>\n<p>Tell them you are their constituent, and you oppose SOPA and PIPA.</p>\n<div style=\"font-size: 1.2em;margin-bottom: 0.2em;\">Why?</div>\n<p>SOPA and PIPA would put the burden on website owners to police user-contributed material and call for the unnecessary blocking of entire sites. Small sites won't have sufficient resources to defend themselves. Big media companies may seek to cut off funding sources for their foreign competitors, even if copyright isn't being infringed. Foreign sites will be blacklisted, which means they won't show up in major search engines. SOPA and PIPA would build a framework for future restrictions and suppression.</p>\n<p>In a world in which politicians regulate the Internet based on the influence of big money, Wikipedia &mdash; and sites like it &mdash; cannot survive. </p>\n<p>Congress says it's trying to protect the rights of copyright owners, but the \"cure\" that SOPA and PIPA represent is worse than the disease. SOPA and PIPA are not the answer: they would fatally damage the free and open Internet.</p>",
 	"apihelp-congresslookup-description": "Record errors regarding congressional representative lookups",
+	"apihelp-congresslookup-summary": "Record errors regarding congressional representative lookups",
 	"apihelp-congresslookup-param-zip": "The ZIP code with a problem.",
 	"apihelp-congresslookup-param-comment": "Whatever the user has to say about that problem."
 }
