@@ -64,7 +64,6 @@ $wgAutoloadClasses['SpecialCongressLookup'] = $dir . 'SpecialCongressLookup.php'
 $wgAutoloadClasses['SpecialCongressFail'] = $dir . 'SpecialCongressFail.php';
 $wgAutoloadClasses['CongressLookupDB'] = $dir . 'CongressLookup.db.php';
 $wgMessagesDirs['CongressLookup'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['CongressLookup'] = $dir . 'CongressLookup.i18n.php';
 $wgExtensionMessagesFiles['CongressLookupAlias'] = $dir . 'CongressLookup.alias.php';
 $wgSpecialPages['CongressLookup'] = 'SpecialCongressLookup';
 $wgSpecialPages['CongressFail'] = 'SpecialCongressFail';
