@@ -1,7 +1,11 @@
 <?php
 /**
+ * This script checks all the House and Senate contact links in the database and reports
+ * any that are dead or broken. Note that some contact links are actually email addresses.
+ *
  * @ingroup Maintenance
  */
+
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
 	$IP = getenv( 'MW_INSTALL_PATH' );
 } else {
@@ -55,7 +59,8 @@ class CheckCongressLinks extends Maintenance {
 				if ( $bits['scheme'] == 'mailto' ) {
 					$ok = true; // assume OK
 				} elseif ( in_array( $bits['scheme'], array( 'http', 'https' ) ) ) {
-					$req = MWHttpRequest::factory( $url, array( 
+					// @TODO: Update this to use the DeadlinkChecker library instead.
+					$req = MWHttpRequest::factory( $url, array(
 							'method'        => 'GET',
 							'timeout'       => 8,
 							'sslVerifyHost' => false, // just check if it can be reached

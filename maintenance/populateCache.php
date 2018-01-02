@@ -1,5 +1,7 @@
 <?php
 /**
+ * This script pre-populates the server-side cache for all possible zip code look-ups.
+ *
  * @ingroup Maintenance
  */
 if ( getenv( 'MW_INSTALL_PATH' ) ) {
