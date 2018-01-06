@@ -1,0 +1,51 @@
+{
+	"name": "CongressLookup",
+	"version": "1.1.0",
+	"author": [
+		"Ryan Kaldari"
+	],
+	"url": "https://www.mediawiki.org/wiki/Extension:CongressLookup",
+	"descriptionmsg": "congresslookup-desc",
+	"license-name": "MIT",
+	"type": "specialpage",
+	"APIModules": {
+		"congresslookup": "ApiCongressLookup"
+	},
+	"SpecialPages": {
+		"CongressLookup": "SpecialCongressLookup",
+		"CongressFail": "SpecialCongressFail"
+	},
+	"MessagesDirs": {
+		"CongressLookup": [
+			"i18n"
+		]
+	},
+	"ExtensionMessagesFiles": {
+		"CongressLookupAlias": "CongressLookup.alias.php"
+	},
+	"AutoloadClasses": {
+		"ApiCongressLookup": "ApiCongressLookup.php",
+		"CongressLookupHooks": "CongressLookupHooks.php",
+		"SpecialCongressLookup": "SpecialCongressLookup.php",
+		"SpecialCongressFail": "SpecialCongressFail.php",
+		"CongressLookupDB": "CongressLookup.db.php"
+	},
+	"Hooks": {
+		"LoadExtensionSchemaUpdates": "CongressLookupHooks::schemaUpdate"
+	},
+	"config": {
+		"CongressLookupSharedMaxAge": {
+			"value": 1200
+		},
+		"CongressLookupMaxAge": {
+			"value": 600
+		},
+		"CongressLookupErrorPage": {
+			"value": "CongressFail"
+		},
+		"CongressLookupBlackOnWhite": {
+			"value": false
+		}
+	},
+	"manifest_version": 2
+}
