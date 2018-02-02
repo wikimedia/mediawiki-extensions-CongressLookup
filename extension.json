@@ -8,6 +8,9 @@
 	"descriptionmsg": "congresslookup-desc",
 	"license-name": "MIT",
 	"type": "specialpage",
+	"requires": {
+		"MediaWiki": ">= 1.29.0"
+	},
 	"APIModules": {
 		"congresslookup": "ApiCongressLookup"
 	},

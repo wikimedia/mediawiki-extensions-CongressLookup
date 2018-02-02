@@ -12,5 +12,5 @@ if ( function_exists( 'wfLoadExtension' ) ) {
 	);
 	return;
 } else {
-	die( 'This version of the CongressLookup extension requires MediaWiki 1.25+' );
+	die( 'This version of the CongressLookup extension requires MediaWiki 1.29+' );
 }
