@@ -13,7 +13,13 @@ require_once( "$IP/maintenance/Maintenance.php" );
 class ZipFileParser extends Maintenance {
 	
 	protected $rep_lookup_cache = array();
-	
+
+	function __construct() {
+		parent::__construct();
+
+		$this->requireExtension( 'CongressLookup' );
+	}
+
 	function execute(){
 		$skip_up_to = 0;
 		if ( !empty( $_SERVER['argv'][1] ) && is_numeric( $_SERVER['argv'][1] ) ){

@@ -25,6 +25,8 @@ class PopulateCache extends Maintenance {
 		$this->addOption( 'limit', 'The amount of values to return during a db query.', false, false );
 		$this->addOption( 'cache_warmup', 'If this is used, the script will attempt to hit all of the possible URLs for you to warm up the cache.', false, false );
 		$this->addOption( 'path', 'The file path to output all possible zip code URLs. If this option is specified, this script will NOT attempt to hit the URLs for you.', false, false );
+
+		$this->requireExtension( 'CongressLookup' );
 		
 	}
 

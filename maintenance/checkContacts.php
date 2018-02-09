@@ -17,6 +17,8 @@ require_once( "$IP/maintenance/Maintenance.php" );
 class CheckCongressLinks extends Maintenance {
 	public function __construct() {
 		$this->mDescription = "Detect bad links in congress contact links.";
+
+		$this->requireExtension( 'CongressLookup' );
 	}
 
 	public function execute() {
