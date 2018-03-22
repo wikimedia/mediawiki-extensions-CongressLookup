@@ -11,7 +11,7 @@ class CongressLookupDB {
 	 */
 	public static function getRepresentative( $zip ) {
 		$repData = array();
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$zip = self::trimZip( $zip, 5 ); // Trim it to 5 digit
 		$zip = intval( $zip ); // Convert into an integer
@@ -80,7 +80,7 @@ class CongressLookupDB {
 	 */
 	public static function getSenators( $zip ) {
 		$senatorData = array();
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		 
 		$zip = self::trimZip( $zip, 3 ); // Trim it to 3 digit
 		$zip = intval( $zip ); // Convert into an integer

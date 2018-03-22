@@ -31,7 +31,7 @@ class PopulateCache extends Maintenance {
 	}
 
 	public function execute() {
-		$this->dbr = wfGetDB( DB_SLAVE );
+		$this->dbr = wfGetDB( DB_REPLICA );
 		$path = $this->getOption( 'path', null );
 		if ( $path ) {
 			$this->writeUrlsToFile( $path );

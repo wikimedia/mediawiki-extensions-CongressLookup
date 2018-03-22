@@ -288,7 +288,7 @@ class ZipFileParser extends Maintenance {
 	
 	
 	function update_rep( $zip, $rep_id ){
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		$dbr->update( 'cl_zip5',
 			array( 
 				'clz5_rep_id' => $rep_id,
@@ -302,7 +302,7 @@ class ZipFileParser extends Maintenance {
 	
 	
 	function remove_rep( $zip, $rep_id ){
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 
 		$dbr->delete( 'cl_zip5',
 			array( 
@@ -314,7 +314,7 @@ class ZipFileParser extends Maintenance {
 	}
 	
 	function insert_rep( $zip, $rep_id ){
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		
 		$rowCheck = $dbr->selectRow( 'cl_zip5',
 			array( 
@@ -341,7 +341,7 @@ class ZipFileParser extends Maintenance {
 	}
 	
 	function insert_reps_by_district( $zip, $districts ){
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		echo "Zip: $zip\n";
 		echo "Districts: " . print_r( $districts, true );
 		
@@ -388,7 +388,7 @@ class ZipFileParser extends Maintenance {
 
 	
 	function getMissingZipcodes(){
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		
 		//for the record, I'd much rather just do this directly...
 //		$query = "select floor(z5.sz5_zip/100) as zgroup, z5.sz5_zip, z5.sz5_rep_id, z3.sz3_state from cl_zip5 z5
@@ -437,7 +437,7 @@ class ZipFileParser extends Maintenance {
 		if ( array_key_exists( $state, $this->rep_lookup_cache) && array_key_exists( $district, $this->rep_lookup_cache[$state]) ){
 			return $this->rep_lookup_cache[$state][$district];
 		} else {
-			$dbr = wfGetDB( DB_SLAVE );
+			$dbr = wfGetDB( DB_REPLICA );
 			
 			$results = $dbr->select(
 				'cl_house', 
@@ -469,7 +469,7 @@ class ZipFileParser extends Maintenance {
 	}
 	
 	function write_happy_table_dump( $table ){
-		$dbr = wfGetDB( DB_SLAVE );
+		$dbr = wfGetDB( DB_REPLICA );
 		
 		if ( !(strpos( $table, 'cl_' ) === 0) ){
 			die("Table $table is not recognized by CongressLookup");

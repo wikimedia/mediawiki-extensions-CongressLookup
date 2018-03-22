@@ -22,7 +22,7 @@ class CheckCongressLinks extends Maintenance {
 	}
 
 	public function execute() {
-		$db = wfGetDB( DB_SLAVE );
+		$db = wfGetDB( DB_REPLICA );
 
 		$this->output( "Checking House contact links...\n" );
 		$res = $db->select( 'cl_house', array( 'clh_name', 'clh_contactform' ) );
