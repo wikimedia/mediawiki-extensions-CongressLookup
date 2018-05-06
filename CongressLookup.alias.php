@@ -1,6 +1,6 @@
 <?php
 /**
- * Aliases for Special:CongressLookup
+ * Aliases for CongressLookup special pages
  *
  * @file
  * @ingroup Extensions
@@ -10,7 +10,7 @@ $specialPageAliases = array();
 
 /** English (English) */
 $specialPageAliases['en'] = array(
-	'CongressLookup' => array( 'CongressLookup' ),
-	'CongressFail' => array( 'CongressFail' ),
+	'NetNeutrality' => array( 'NetNeutrality' ),
+	'SenateLookup' => array( 'SenateLookup' )
 );
 

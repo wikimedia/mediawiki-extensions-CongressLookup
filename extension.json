@@ -1,6 +1,6 @@
 {
 	"name": "CongressLookup",
-	"version": "1.1.0",
+	"version": "2.0.0",
 	"author": [
 		"Ryan Kaldari"
 	],
@@ -11,12 +11,9 @@
 	"requires": {
 		"MediaWiki": ">= 1.29.0"
 	},
-	"APIModules": {
-		"congresslookup": "ApiCongressLookup"
-	},
 	"SpecialPages": {
-		"CongressLookup": "SpecialCongressLookup",
-		"CongressFail": "SpecialCongressFail"
+		"NetNeutrality": "SpecialNetNeutrality",
+		"SenateLookup": "SpecialSenateLookup"
 	},
 	"MessagesDirs": {
 		"CongressLookup": [
@@ -27,28 +24,18 @@
 		"CongressLookupAlias": "CongressLookup.alias.php"
 	},
 	"AutoloadClasses": {
-		"ApiCongressLookup": "ApiCongressLookup.php",
-		"CongressLookupHooks": "CongressLookupHooks.php",
-		"SpecialCongressLookup": "SpecialCongressLookup.php",
-		"SpecialCongressFail": "SpecialCongressFail.php",
-		"CongressLookupDB": "CongressLookup.db.php"
+		"SpecialNetNeutrality": "SpecialNetNeutrality.php",
+		"SpecialSenateLookup": "SpecialSenateLookup.php"
 	},
-	"Hooks": {
-		"LoadExtensionSchemaUpdates": "CongressLookupHooks::schemaUpdate"
-	},
-	"config": {
-		"CongressLookupSharedMaxAge": {
-			"value": 1200
-		},
-		"CongressLookupMaxAge": {
-			"value": 600
-		},
-		"CongressLookupErrorPage": {
-			"value": "CongressFail"
-		},
-		"CongressLookupBlackOnWhite": {
-			"value": false
+	"ResourceModules": {
+		"ext.congresslookup.styles": {
+			"styles": "ext.congresslookup.css"
 		}
 	},
+	"ResourceFileModulePaths": {
+		"localBasePath": "resources",
+		"remoteExtPath": "CongressLookup/resources"
+	},
+	"config": {},
 	"manifest_version": 2
 }
