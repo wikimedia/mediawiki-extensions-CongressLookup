@@ -13,4 +13,3 @@ $specialPageAliases['en'] = [
 	'NetNeutrality' => [ 'NetNeutrality' ],
 	'SenateLookup' => [ 'SenateLookup' ]
 ];
-
