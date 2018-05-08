@@ -6,11 +6,11 @@
  * @ingroup Extensions
  */
 
-$specialPageAliases = array();
+$specialPageAliases = [];
 
 /** English (English) */
-$specialPageAliases['en'] = array(
-	'NetNeutrality' => array( 'NetNeutrality' ),
-	'SenateLookup' => array( 'SenateLookup' )
-);
+$specialPageAliases['en'] = [
+	'NetNeutrality' => [ 'NetNeutrality' ],
+	'SenateLookup' => [ 'SenateLookup' ]
+];
 
