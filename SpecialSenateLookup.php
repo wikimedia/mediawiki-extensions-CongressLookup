@@ -38,17 +38,17 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 			}
 			if ( $myContactArray ) {
 				// Build the HTML table
-				$templateParser = new TemplateParser(  __DIR__ . '/templates' );
+				$templateParser = new TemplateParser( __DIR__ . '/templates' );
 				$contactsHtml = $templateParser->processTemplate( 'contacts', $myContactArray );
 				$out->addHTML( $contactsHtml );
 				// Show sidebar content
 				$parsedSidebarMessage = $this->msg( 'net-neutrality-sidebar' )->parse();
-				$out->addHTML(  Html::rawElement( 'div', [ 'class' => 'plainlinks', 'id' => 'instructions' ], $parsedSidebarMessage ) );
+				$out->addHTML( Html::rawElement( 'div', [ 'class' => 'plainlinks', 'id' => 'instructions' ], $parsedSidebarMessage ) );
 			} else {
 				$out->addHTML( Html::element( 'div', [ 'class' => 'error' ], $this->msg( 'congresslookup-senator-error' ) ) );
 			}
 		} else {
-			$out->addHTML(  Html::element( 'div', [ 'class' => 'error' ], $this->msg( 'congresslookup-state-error' ) ) );
+			$out->addHTML( Html::element( 'div', [ 'class' => 'error' ], $this->msg( 'congresslookup-state-error' ) ) );
 		}
 	}
 

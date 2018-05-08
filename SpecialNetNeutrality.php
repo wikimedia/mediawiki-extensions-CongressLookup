@@ -21,7 +21,7 @@ class SpecialNetNeutrality extends UnlistedSpecialPage {
 		$out->setPageTitle( $this->msg( 'congresslookup-net-neutrality' ) );
 
 		$parsedHeaderMessage = $this->msg( 'net-neutrality-header' )->parse();
-		$out->addHTML(  Html::rawElement( 'div', [ 'class' => 'plainlinks' ], $parsedHeaderMessage ) );
+		$out->addHTML( Html::rawElement( 'div', [ 'class' => 'plainlinks' ], $parsedHeaderMessage ) );
 
 		$form = new OOUI\FormLayout( [
 			'method' => 'POST',
@@ -103,9 +103,9 @@ class SpecialNetNeutrality extends UnlistedSpecialPage {
 			]
 		] );
 
-		$out->addHTML(  Html::rawElement( 'div', [ 'class' => 'stateform' ], $form ) );
+		$out->addHTML( Html::rawElement( 'div', [ 'class' => 'stateform' ], $form ) );
 
 		$parsedFooterMessage = $this->msg( 'net-neutrality-footer' )->parse();
-		$out->addHTML(  Html::rawElement( 'div', [ 'class' => 'plainlinks' ], $parsedFooterMessage ) );
+		$out->addHTML( Html::rawElement( 'div', [ 'class' => 'plainlinks' ], $parsedFooterMessage ) );
 	}
 }

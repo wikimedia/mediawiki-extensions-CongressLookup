@@ -2,7 +2,6 @@
 <ruleset>
 	<rule ref="./vendor/mediawiki/mediawiki-codesniffer/MediaWiki">
 		<exclude name="Generic.Files.LineLength.TooLong" />
-		<exclude name="MediaWiki.WhiteSpace.SpaceyParenthesis.SingleSpaceAfterOpenParenthesis" />
 		<exclude name="PSR2.Files.EndFileNewline.TooMany" />
 	</rule>
 	<file>.</file>
