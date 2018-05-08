@@ -26,30 +26,51 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 		// Pull in query string parameters
 		$state = $this->getRequest()->getVal( 'state' );
 
-		if ( strlen( $state ) === 2 ) {
-			$this->state = $state;
-			// Load the contact information
-			$this->loadSenators();
-			$myContactArray = [];
-			foreach ( $this->senators as $senator ) {
-				if ( isset( $senator['state'] ) && $senator['state'] === $state ) {
-					$myContactArray['contacts'][] = $senator;
-				}
-			}
-			if ( $myContactArray ) {
-				// Build the HTML table
-				$templateParser = new TemplateParser( __DIR__ . '/templates' );
-				$contactsHtml = $templateParser->processTemplate( 'contacts', $myContactArray );
-				$out->addHTML( $contactsHtml );
-				// Show sidebar content
-				$parsedSidebarMessage = $this->msg( 'net-neutrality-sidebar' )->parse();
-				$out->addHTML( Html::rawElement( 'div', [ 'class' => 'plainlinks', 'id' => 'instructions' ], $parsedSidebarMessage ) );
-			} else {
-				$out->addHTML( Html::element( 'div', [ 'class' => 'error' ], $this->msg( 'congresslookup-senator-error' ) ) );
-			}
-		} else {
-			$out->addHTML( Html::element( 'div', [ 'class' => 'error' ], $this->msg( 'congresslookup-state-error' ) ) );
+		if ( strlen( $state ) !== 2 ) {
+			$out->addHTML(
+				Html::element(
+					'div',
+					[ 'class' => 'error' ],
+					$this->msg( 'congresslookup-state-error' )
+				)
+			);
+			return;
 		}
+
+		$this->state = $state;
+		// Load the contact information
+		$this->loadSenators();
+		$myContactArray = [];
+		foreach ( $this->senators as $senator ) {
+			if ( isset( $senator['state'] ) && $senator['state'] === $state ) {
+				$myContactArray['contacts'][] = $senator;
+			}
+		}
+
+		if ( !$myContactArray ) {
+			$out->addHTML(
+				Html::element(
+					'div',
+					[ 'class' => 'error' ],
+					$this->msg( 'congresslookup-senator-error' )
+				)
+			);
+			return;
+		}
+
+		// Build the HTML table
+		$templateParser = new TemplateParser( __DIR__ . '/templates' );
+		$contactsHtml = $templateParser->processTemplate( 'contacts', $myContactArray );
+		$out->addHTML( $contactsHtml );
+		// Show sidebar content
+		$parsedSidebarMessage = $this->msg( 'net-neutrality-sidebar' )->parse();
+		$out->addHTML(
+			Html::rawElement(
+				'div',
+				[ 'class' => 'plainlinks', 'id' => 'instructions' ],
+				$parsedSidebarMessage
+			)
+		);
 	}
 
 	/**
