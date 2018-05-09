@@ -1,7 +1,7 @@
 <?php
 /**
  * This class creates a page which asks the user for their state. It then sends them to
- * the Senator page with the appropriate state info.
+ * the Special:SenatorLookup page with the appropriate state info.
  */
 class SpecialNetNeutrality extends UnlistedSpecialPage {
 
