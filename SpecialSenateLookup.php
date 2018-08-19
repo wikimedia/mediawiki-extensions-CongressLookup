@@ -31,7 +31,7 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 				Html::element(
 					'div',
 					[ 'class' => 'error' ],
-					$this->msg( 'congresslookup-state-error' )
+					$this->msg( 'congresslookup-state-error' )->text()
 				)
 			);
 			return;
@@ -52,7 +52,7 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 				Html::element(
 					'div',
 					[ 'class' => 'error' ],
-					$this->msg( 'congresslookup-senator-error' )
+					$this->msg( 'congresslookup-senator-error' )->text()
 				)
 			);
 			return;
