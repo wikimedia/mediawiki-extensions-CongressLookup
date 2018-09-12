@@ -24,8 +24,8 @@
 		"CongressLookupAlias": "CongressLookup.alias.php"
 	},
 	"AutoloadClasses": {
-		"SpecialNetNeutrality": "SpecialNetNeutrality.php",
-		"SpecialSenateLookup": "SpecialSenateLookup.php"
+		"SpecialNetNeutrality": "includes/SpecialNetNeutrality.php",
+		"SpecialSenateLookup": "includes/SpecialSenateLookup.php"
 	},
 	"ResourceModules": {
 		"ext.congresslookup.styles": {
