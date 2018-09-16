@@ -1088,6 +1088,17 @@
 			"fax": "NULL",
 			"contactform": "http://www.young.senate.gov/contact",
 			"twitter": "SenToddYoung"
+		},
+		{
+			"bioguideid": "K000352",
+			"gender": "M",
+			"name": "Jon Kyl [R, AZ]",
+			"short_title": "Sen.",
+			"state": "AZ",
+			"phone": "202-224-2235",
+			"fax": "202-228-2862",
+			"contactform": "NULL",
+			"twitter": "SenJonKyl"
 		}
 	]
 }
