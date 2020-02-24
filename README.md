@@ -1,4 +1,3 @@
-[![devDependencies Status](https://david-dm.org/wikimedia/mediawiki-extensions-CongressLookup/dev-status.svg)](https://david-dm.org/wikimedia/mediawiki-extensions-CongressLookup?type=dev)
 ## CongressLookup
 MediaWiki extension to facilitate net neutrality outreach. See older versions for SOPA blackout.
 
