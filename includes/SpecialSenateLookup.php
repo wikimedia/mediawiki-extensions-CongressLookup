@@ -1,4 +1,11 @@
 <?php
+
+namespace MediaWiki\Extension\CongressLookup;
+
+use Html;
+use TemplateParser;
+use UnlistedSpecialPage;
+
 /**
  * This class uses the state to look up information about the user's senate representatives
  * and presents that information to the user.
@@ -59,7 +66,7 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 		}
 
 		// Build the HTML table
-		$templateParser = new TemplateParser( __DIR__ . '/templates' );
+		$templateParser = new TemplateParser( dirname( __DIR__ ) . '/templates' );
 		$contactsHtml = $templateParser->processTemplate( 'contacts', $myContactArray );
 		$out->addHTML( $contactsHtml );
 		// Show sidebar content
@@ -77,7 +84,7 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 	 * Load senators from a json file.
 	 */
 	protected function loadSenators() {
-		$contents = file_get_contents( __DIR__ . '/senators.json' );
+		$contents = file_get_contents( dirname( __DIR__ ) . '/senators.json' );
 		$contents = json_decode( $contents, true );
 		if ( $contents ) {
 			$this->senators = $contents['senators'];

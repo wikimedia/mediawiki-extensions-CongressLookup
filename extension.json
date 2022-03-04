@@ -9,11 +9,11 @@
 	"license-name": "MIT",
 	"type": "specialpage",
 	"requires": {
-		"MediaWiki": ">= 1.29.0"
+		"MediaWiki": ">= 1.31.0"
 	},
 	"SpecialPages": {
-		"NetNeutrality": "SpecialNetNeutrality",
-		"SenateLookup": "SpecialSenateLookup"
+		"NetNeutrality": "MediaWiki\\Extension\\CongressLookup\\SpecialNetNeutrality",
+		"SenateLookup": "MediaWiki\\Extension\\CongressLookup\\SpecialSenateLookup"
 	},
 	"MessagesDirs": {
 		"CongressLookup": [
@@ -23,9 +23,8 @@
 	"ExtensionMessagesFiles": {
 		"CongressLookupAlias": "CongressLookup.alias.php"
 	},
-	"AutoloadClasses": {
-		"SpecialNetNeutrality": "includes/SpecialNetNeutrality.php",
-		"SpecialSenateLookup": "includes/SpecialSenateLookup.php"
+	"AutoloadNamespaces": {
+		"MediaWiki\\Extension\\CongressLookup\\": "includes/"
 	},
 	"ResourceModules": {
 		"ext.congresslookup.styles": {

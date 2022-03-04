@@ -1,4 +1,15 @@
 <?php
+
+namespace MediaWiki\Extension\CongressLookup;
+
+use Html;
+use OOUI\ButtonInputWidget;
+use OOUI\DropdownInputWidget;
+use OOUI\FormLayout;
+use OOUI\HorizontalLayout;
+use OOUI\LabelWidget;
+use UnlistedSpecialPage;
+
 /**
  * This class creates a page which asks the user for their state. It then sends them to
  * the Special:SenatorLookup page with the appropriate state info.
@@ -23,16 +34,16 @@ class SpecialNetNeutrality extends UnlistedSpecialPage {
 		$parsedHeaderMessage = $this->msg( 'net-neutrality-header' )->parse();
 		$out->addHTML( Html::rawElement( 'div', [ 'class' => 'plainlinks' ], $parsedHeaderMessage ) );
 
-		$form = new OOUI\FormLayout( [
+		$form = new FormLayout( [
 			'method' => 'POST',
 			'action' => 'Special:SenateLookup',
 			'items' => [
-				new OOUI\HorizontalLayout( [
+				new HorizontalLayout( [
 					'items' => [
-						new OOUI\LabelWidget( [
+						new LabelWidget( [
 							'label' => 'Contact your senators:'
 						] ),
-						new OOUI\DropdownInputWidget( [
+						new DropdownInputWidget( [
 							'name' => 'state',
 							'infusable' => true,
 							'options' => [
@@ -88,7 +99,7 @@ class SpecialNetNeutrality extends UnlistedSpecialPage {
 								[ 'data' => 'WY', 'label' => 'Wyoming' ]
 							]
 						] ),
-						new OOUI\ButtonInputWidget( [
+						new ButtonInputWidget( [
 							'name' => 'Lookup',
 							'label' => 'Lookup',
 							'type' => 'submit',
