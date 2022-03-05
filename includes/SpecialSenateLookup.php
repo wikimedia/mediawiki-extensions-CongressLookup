@@ -12,8 +12,10 @@ use UnlistedSpecialPage;
  */
 class SpecialSenateLookup extends UnlistedSpecialPage {
 
+	/** @var null */
 	protected $state = null;
 
+	/** @var array */
 	protected $senators = [];
 
 	public function __construct() {
