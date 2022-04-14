@@ -1,4 +1,5 @@
 {
+	"name": "CongressLookup",
 	"private": true,
 	"scripts": {
 		"test": "grunt test"
