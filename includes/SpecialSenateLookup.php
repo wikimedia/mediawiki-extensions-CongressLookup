@@ -33,7 +33,7 @@ class SpecialSenateLookup extends UnlistedSpecialPage {
 		$out->setPageTitle( $this->msg( 'congresslookup-senator-contact' ) );
 
 		// Pull in query string parameters
-		$state = $this->getRequest()->getVal( 'state' );
+		$state = $this->getRequest()->getVal( 'state', '' );
 
 		if ( strlen( $state ) !== 2 ) {
 			$out->addHTML(
